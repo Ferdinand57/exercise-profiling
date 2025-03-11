@@ -24,17 +24,21 @@ public class StudentService {
     private StudentCourseRepository studentCourseRepository;
 
     public List<StudentCourse> getAllStudentsWithCourses() {
-        List<Student> students = studentRepository.findAll();
-        List<StudentCourse> studentCourses = new ArrayList<>();
-        for (Student student : students) {
-            List<StudentCourse> studentCoursesByStudent = studentCourseRepository.findByStudentId(student.getId());
-            for (StudentCourse studentCourseByStudent : studentCoursesByStudent) {
-                StudentCourse studentCourse = new StudentCourse();
-                studentCourse.setStudent(student);
-                studentCourse.setCourse(studentCourseByStudent.getCourse());
-                studentCourses.add(studentCourse);
-            }
-        }
+//        List<Student> students = studentRepository.findAll();
+//        List<StudentCourse> studentCourses = new ArrayList<>();
+//        for (Student student : students) {
+//            List<StudentCourse> studentCoursesByStudent = studentCourseRepository.findByStudentId(student.getId());
+//            for (StudentCourse studentCourseByStudent : studentCoursesByStudent) {
+//                StudentCourse studentCourse = new StudentCourse();
+//                studentCourse.setStudent(student);
+//                studentCourse.setCourse(studentCourseByStudent.getCourse());
+//                studentCourses.add(studentCourse);
+//            }
+//        }
+        // "List<Student> students = studentRepository.findAll();"
+        // if the line above can get the list of all Student object in studentRepository in one line
+        // what if we can get the list of all StudentCourse object in studentCourseRepository with the same way?
+        List<StudentCourse> studentCourses = studentCourseRepository.findAll();
         return studentCourses;
     }
 
