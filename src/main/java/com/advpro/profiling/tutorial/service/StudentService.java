@@ -61,10 +61,25 @@ public class StudentService {
     }
 
     public String joinStudentNames() {
+//        List<Student> students = studentRepository.findAll();
+//        String result = "";
+//        for (Student student : students) {
+//            result += student.getName() + ", ";
+//        }
+//        return result.substring(0, result.length() - 2);
+        // As every String concatenation copies the whole string,
+        // usually it is preferable to replace it with explicit
+        // calls to StringBuilder.append() or StringBuffer.append().
+        // - IntelliJ Ultimate
+        // From what I understand, by using concatenation, the code is copying
+        // and making new string with added string every time the code add a new student
+        // name, making the operation very heavy on copying existing data
+        // which is inefficient, instead of copying the immutable String object
+        // we can instead use the "mutable" StringBuilder object
         List<Student> students = studentRepository.findAll();
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (Student student : students) {
-            result += student.getName() + ", ";
+            result.append(student.getName()).append(", ");
         }
         return result.substring(0, result.length() - 2);
     }
