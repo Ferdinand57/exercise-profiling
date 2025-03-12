@@ -57,3 +57,10 @@
 ### /highest-gpa testresults3.jtl
 
 ![testresults3.jtl.png](module5Images/testresults3.jtl.png)
+
+# Comparison before optimised and after optimised
+Is there improvement in JMeter measurements? yes, a lot of improvements
+
+![compareAllStudent.png](module5Images/compareAllStudent.png)
+![compareAllStudentName.png](module5Images/compareAllStudentName.png)
+![compareHighestGpa.png](module5Images/compareHighestGpa.png)
