@@ -43,16 +43,21 @@ public class StudentService {
     }
 
     public Optional<Student> findStudentWithHighestGpa() {
-        List<Student> students = studentRepository.findAll();
-        Student highestGpaStudent = null;
-        double highestGpa = 0.0;
-        for (Student student : students) {
-            if (student.getGpa() > highestGpa) {
-                highestGpa = student.getGpa();
-                highestGpaStudent = student;
-            }
-        }
-        return Optional.ofNullable(highestGpaStudent);
+//        List<Student> students = studentRepository.findAll();
+//        Student highestGpaStudent = null;
+//        double highestGpa = 0.0;
+//        for (Student student : students) {
+//            if (student.getGpa() > highestGpa) {
+//                highestGpa = student.getGpa();
+//                highestGpaStudent = student;
+//            }
+//        }
+//        return Optional.ofNullable(highestGpaStudent);
+        // The previous code call in the data from the database and iterate it here
+        // But accessing the database takes time, and the previous code can't be optimised further
+        // because the number of comparison will always be O(N), therefore why not cut the middle men
+        // and do the calculation inside the database
+        return studentRepository.findStudentWithHighestGpa();
     }
 
     public String joinStudentNames() {
